@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>伸縮する数学書の実験</title>
+
+        <link rel="stylesheet" href="katex/katex.min.css">
+        <link rel="stylesheet" type="text/css" href="css/honoka.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <style type="text/css">
+  body { padding-top: 80px; }
+  .text, h1, .well, .panel-body, .text-info {
+    font-family: "游明朝", "Yu Mincho", YuMincho, serif;
+  }
+  .top {
+      margin-left: 30px;
+      margin-bottom: 30px;
+  }
+  a[role="button"]:not(.text-warning) {
+      color: inherit;
+  }
+  .panel {
+      margin-top: 10px;
+  }
+  @media ( min-width: 768px ) {
+    #banner {
+      border-bottom: none;
+    }
+    .bs-component {
+      position: relative;
+    }
+    .bs-component .modal {
+      position: relative;
+      top: auto;
+      right: auto;
+      left: auto;
+      bottom: auto;
+      z-index: 1;
+      display: block;
+    }
+    .bs-component .modal-dialog {
+      width: 90%;
+    }
+    .bs-component .popover {
+      position: relative;
+      display: inline-block;
+      width: 220px;
+      margin: 5px;
+    }
+}
+  </style>
+
+  <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="row">
+    <p>
+        「伸縮する数学書」のサンプルです．（実験中）<br />
+        特定の場所にマウスを重ねるかクリックすると，反応して何かが現れます．
+    </p>
+    <p>
+        書き方の<a href="usage.html">説明書</a>も参考にしてください．サンプルもいずれ追加予定です．
+    </p>
+    <p class="pull-right">
+        連絡先：elastic [at-mark] i3vi3 [dot] xyz
+    </p>
+    <p>
+    <button type="button" class="btn btn-info color" id="color" data-colored="false">反応がある箇所を色付けする</button>
+    </p>
+  </div>
+
+  <!-- Navbar
+  ================================================== -->
+  <div class="bs-docs-section clearfix">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-header">
+          <h1>第１章　有限整域の理論</h1>
+        </div>
+        <div class="panel panel-info" id="integral_domain">
+        <div class="panel-heading">
+          <h3 class="panel-title">定義 1.1</h3>
+          </div>
+          <div class="panel-body">
+              <strong>整域</strong>とは，<a data-et="popover-zero_ring">零環</a>ではない可換環のうち，$ab=0$ を満たす任意の元 $a,b$ について $a=0$ か $b=0$ が成立するものをいう．
+        </div>
+      </div>
+      <div class="text top">
+          たとえば，<a data-et="popover-term_field">体</a>はすべて<a data-et="collapse-fisid">整域である．</a><div class="collapse text-info text" id="fisid">これを示すために，体の 2 元 $a,b$ で $ab=0$ を満たすものをとる．$a=0$ か $b=0$ であることを示そう．$a\neq 0$ であると仮定して $b=0$ であることを示せばよい．この仮定の下で $a$ には逆元 $a^{-1}$ が存在するので，$b=(a^{-1}a)b=a^{-1}(ab)=0$ が成立する．</div>
+          また，有理整数環 $\mathbb{Z}$ は，<a data-et="popover-term_field">体</a>でない整域の例である．整域の重要な例は，<a data-et="collapse-function">函数論にも</a>自然に現れる．<div class="collapse text-info text" id="function">たとえば，複素平面 $\mathbb{C}$ 上の正則函数全体の<a data-et="collapse-OCring">なす環</a> $\mathscr{O}(\mathbb{C})$ は<a data-et="collapse-OCisID">整域である．</a><div class="collapse text-info" id="OCring">（$f, g\in\mathscr{O}(\mathbb{C})$ に対してその和 $f+g$ と積 $fg$ は，それぞれ $(f+g)(z)=f(z)+g(z), (fg)(z)=f(z)g(z)$ で定義している．これらは正則函数なので $\mathscr{O}(\mathbb{C})$ 上の演算を定め，可換環の公理を満たす．）</div><div class="collapse text-info text" id="OCisID">これを証明するため，$\mathscr{O}(\mathbb{C})$ の 2 元 $f, g$ で $fg=0$ を満たすものをとる．$f\neq 0$ を仮定して $g=0$ を示そう．$f(z_0)\neq 0$ となる $z_0\in\mathbb{C}$ を固定すると，$z_0$ の開近傍 $U$ を $\forall z\in U, f(z)\neq 0$ が成立するように<a data-et="collapse-depth3">とれる．</a><div class="collapse text-info" id="depth3">（たとえば，$f(z_0)$ を中心とする半径 $\frac{f(z_0)}{2}$ の開球 $V\subset\mathbb{C}$ をとれば，$f$ の連続性により $U=f^{-1}(V)$ が条件を満たす．）</div>このとき，仮定により $\forall z\in U, g(z)=0$ だから，<a data-et="popover-thm_id">一致の定理</a>により $g=0$ である．
+      </div></div></div>
+  
+  <div class="text top">
+      本章の目的は，<strong>有限整域</strong>，すなわち<a data-et="modal-integral_domain">整域</a>のうち台集合が有限集合であるものの研究である．</p>
+  </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">定理 1.2</h3>
+        </div>
+        <div class="panel-body">
+            <a data-et="popover-finite_id">有限整域</a>は<a data-et="popover-term_field">体</a>である．
+        </div>
+      </div>
+        <div class="bs-component">
+          <div class="well">
+              証明：<a data-et="popover-finite_id">有限整域</a> $A$ について，$A$ が<a data-et="popover-term_field">体</a>であることを示す．
+              $A$ の 0 でない任意の元 $a$ をとる．$a$ の逆元が存在することを証明したい．
+              そのためには，写像 $f\colon A \to A; x \mapsto ax$ が全射であることを<a data-et="collapse-ce1">示せばよい．</a><div class="collapse text-info" id="ce1">なぜなら，これが全射であれば $f(b)=1$ を満たす $b\in A$ がとれるが，この $b$ が $a$ の逆元と<a data-et="collapse-ce2">なっている</a>からである．<div class="collapse text-info" id="ce2">（$f$ の定め方から $ab=1$ であるが，<span class="math">A</span> は<a data-et="modal-integral_domain">整域</a>であり，従って可換環だから $ba=1$ でもある．）</div></div>
+              ところが，$A$ は<a data-et="modal-integral_domain">整域</a>だから $f$ は<a data-et="collapse-ce3">単射である．</a><div class="collapse text-info" id="ce3">これを示すために，2 元 $b, c\in A$ で $f(b)=f(c)$ が満たされるものをとる．すると，$ab=ac$ すなわち $a(b-c)=0$ が成立する．$A$ が整域で $a\neq 0$ であることから，$b-c=0$，従って $b=c$ が成立する．これで $f$ の単射性が示された．</div>
+          また，$A$ は有限集合だから $f$ は全射でもある．（証明終）
+          </div>
+        </div>
+        <div class="text top">
+        なお，有限体の理論の研究は読者に任せる．
+        </div>
+        <div class="pull-right">
+        製作：<a href="http://www.twitter.com/nolimbre/">@nolimbre</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    popovers = {
+        term_field: {
+            title: "体",
+            content: "体とは，零環ではない可換環のうち，0 でない全ての元が可逆であるもののことである．",
+            placement: "top",
+        },
+        zero_ring: {
+            title: "零環",
+            content: "零環とは，ただ 1 つの元から成る環のことである．環が零環であるためには，その環において 1 = 0 であることが必要十分である．",
+            placement: "top",
+        },
+        thm_id: {
+            title: "一致の定理",
+            content: "複素平面上の正則函数は，その零点集合が集積点をもてば，複素平面全体で恒等的に 0 である．",
+        },
+        finite_id: {
+            title: "有限整域",
+            content: "有限整域とは，整域のうち，台集合が有限集合であるものをいう．",
+        },
+    };
+</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="katex/katex.min.js"></script>
+<script src="katex/auto-render.min.js"></script>
+<script src="js/elastictext.js"></script>
+
+<script type="text/javascript">
+    renderMathInElement(document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    });
+    (function(){
+          $(".math").each(function() {
+            var texTxt = $(this).text();
+            el = $(this).get(0);
+            if(el.tagName == "div"){
+                addDisp = "\\displaystyle";
+            } else {
+                addDisp = "";
+            }
+            try {
+                katex.render(addDisp+texTxt, el);
+            }
+            catch(err) {
+                $(this).html("<span class='err'>"+err);
+            }
+          }); 
+        })(); 
+        $("button#color").click(function() {
+            $('a[role="button"]').toggleClass("text-warning");
+            if ($(this).attr("data-colored") == "false") {
+                $(this).attr("data-colored", "true");
+                $(this).html("反応がある箇所の色付けを解除する");
+                 
+            } else {
+                $(this).attr("data-colored", "false");
+                $(this).text("反応がある箇所を色付けする");
+            }
+        });
+</script>
+
+</body>
+</html>

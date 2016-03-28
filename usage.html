@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>How to write "elastic text"</title>
+
+        <link rel="stylesheet" href="katex/katex.min.css">
+        <link rel="stylesheet" type="text/css" href="css/yeti.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/monokai.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <style type="text/css">
+          body { padding-top: 80px; }
+          .top {
+              margin-left: 30px;
+              margin-bottom: 30px;
+          }
+          a[role="button"]:not(.text-warning) {
+              color: #f32089;
+          }
+          .panel {
+              margin-top: 10px;
+          }
+          @media ( min-width: 768px ) {
+            #banner {
+              border-bottom: none;
+            }
+            .bs-component {
+              position: relative;
+            }
+            .bs-component .modal {
+              position: relative;
+              top: auto;
+              right: auto;
+              left: auto;
+              bottom: auto;
+              z-index: 1;
+              display: block;
+            }
+            .bs-component .modal-dialog {
+              width: 90%;
+            }
+            .bs-component .popover {
+              position: relative;
+              display: inline-block;
+              width: 220px;
+              margin: 5px;
+            }
+            }
+          </style>
+
+  <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+
+<div class="container">
+
+
+  <!-- Navbar
+  ================================================== -->
+  <div class="bs-docs-section clearfix">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-header">
+          <h1>How to write "elastic text"</h1>
+        </div>
+        <div class="panel panel-danger" id="important_remark">
+          <div class="panel-heading">
+              <h3 class="panel-title"><span class="fa fa-exclamation-triangle" aria-hidden="true"></span> Important Remark</h3>
+          </div>
+          <div class="panel-body">
+              The specification of the "elastic text" is not (and is far from) a final version.
+              Backward compatibility in future updates is not guaranteed.<br />
+              Please note, therefore, that documents based on this version may not work with later versions.
+          </div>
+        </div>
+    <div class="row">
+      </div>
+        <h2>Getting started</h2>
+        <p>
+        In your HTML file, read <a href="js/elastictext.js" download="elastictext.js">elastictext.js</a> by
+           <pre><code>    &lt;script src="path/to/elastictext.js"&gt;&lt;/script&gt;</code></pre>
+           <strong>Bootstrap 3 and jQuery are also required.</strong>
+        </p>
+
+        <h2>Writing Collapse</h2>
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Example Code</h3> 
+            </div>
+            <div class="panel-body">
+                <pre><code class="html">
+    Now, the great theorem &lt;a data-et="collapse-myCollapseAria"&gt;proves the claim&lt;/a&gt;.
+    &lt;div class="collapse" id="myCollapseAria"&gt;It can be checked by the greatness of the great theorem.&lt;/div&gt;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Result</h3>
+            </div>
+            <div class="panel-body">
+                Now, the great theorem <a data-et="collapse-myCollapseAria">proves the claim</a>.
+                <div class="collapse" id="myCollapseAria">It can be checked by the greatness of the great theorem.</div>
+            </div>
+        </div>
+
+        <div class="well">
+            <p>Use a pair of two tags, <code>div</code> and <code>a</code>.</p>
+
+            <p>In order to indicate which <code>div</code> tag corresponds to which <code>a</code>,
+            a unique id must be given, say <code>colID</code>.
+            (In the example above, the id is <code>myCollapseArea</code>.)</p>
+
+            <p>The <code>a</code> tag must have the attribute <code>data-et="collapse-colID"</code>.</p>
+
+            <p>The <code>div</code> tag must have the <code>collapse</code> class and the <code>colID</code> id.</p>
+
+            <p>The contents of the <code>div</code> tag is hidden in default.
+            As you click the contents of the <code>a</code> tag, that of the corresponding <code>div</code> tag is opened.</p>
+        </div>
+
+        <h2>Writing Popover</h2>
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Example Code</h3> 
+            </div>
+            <div class="panel-body">
+                <pre><code class="html">
+    This theorem relates this &lt;a data-et="popover-myPopoverId1"&gt;complicated object&lt;/a&gt;
+    with that &lt;a data-et="popover-myPopoverId2"&gt;extremely complicated object&lt;/a&gt;.
+
+    &lt;!-- The following script tag should be put BEFORE elastictext.js is read. --&gt;
+    &lt;script type="text/javascript"&gt; 
+        popovers = {
+            myPopoverId1: {
+                content: "I have not understood its definition yet."
+            },
+            myPopoverId2: {
+                title: "Yes, extremely!",
+                content: "So I gave up understanding it.",
+                placement: "right"
+            }
+        };
+    &lt;/script&gt;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Result</h3>
+            </div>
+            <div class="panel-body">
+                This theorem relates this <a data-et="popover-myPopoverId1">complicated object</a>
+                with that <a data-et="popover-myPopoverId2">extremely complicated object</a>.
+            </div>
+        </div>
+
+        <div class="well">
+            <p>First, decide the id for popover, say <code>popID</code>.
+            (In the example above, <code>myPopoverId1</code> and <code>myPopoverId2</code> are ids.)</p>
+            
+            <p>Use <code>a</code> tag to indicate the area for popover.
+            This <code>a</code> tag must have the attribute <code>data-et="popover-popID"</code>.</p>
+
+            <p>
+            The contents of the popover is written as a dictionary named <code>popovers</code> of Javascript.
+            <code>popovers['popID']</code> is itself a dictionary, and
+            <code>popovers['popID']['content']</code> should be a content of the popover.</p>
+
+            <p>
+            If the popover should have a title, you can add <code>popovers['popID']['title']</code>.
+            </p>
+
+            <p>
+            The popover appears in the bottom by default. You can change this behaviour by adding
+            <code>popovers['popID']['placement']</code>.
+            For this value, <code>"top"</code>, <code>"bottom"</code> (default), <code>"right"</code> and <code>"left"</code> are allowed.
+        </div>
+
+        <h2>Writing Modal</h2>
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Example Code</h3> 
+            </div>
+            <div class="panel-body">
+                <pre><code class="html">
+    Here, we recall the first &lt;a data-et="modal-important_remark"&gt;important remark&lt;/a&gt;.
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Result</h3>
+            </div>
+            <div class="panel-body">
+                Here, we recall the first <a data-et="modal-important_remark">important remark</a>.
+            </div>
+        </div>
+
+        <div class="well">
+            <p>In order to use the "modal" function, you first have to indicate <code>id</code>,
+            say <code>modID</code>, 
+            in the <code>div</code> tag indicating the panel you want to recall.
+            (For example, in this HTML file, the first "Important Remark" panel is given the <code>important_remark</code> id.</p>
+            
+            <p>Now, use <code>a</code> tag with the attribute <code>data-et="modal-modID"</code>.
+            Then, as user clicks the area surrounded by this <code>a</code> tag,
+            the modal appears.
+            </p>
+        </div>
+    </div>
+
+        <div class="pull-right">
+        製作：<a href="http://www.twitter.com/nolimbre/">@nolimbre</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    popovers = {
+        myPopoverId1: {
+            content: "I have not understood its definition yet."
+        },
+        myPopoverId2: {
+            title: "Yes, extremely!",
+            content: "I gave up understanding it.",
+            placement: "right"
+        }
+    };
+</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="katex/katex.min.js"></script>
+<script src="katex/auto-render.min.js"></script>
+<script src="js/elastictext.js"></script>
+
+<script type="text/javascript">
+    renderMathInElement(document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    });
+    (function(){
+          $(".math").each(function() {
+            var texTxt = $(this).text();
+            el = $(this).get(0);
+            if(el.tagName == "div"){
+                addDisp = "\\displaystyle";
+            } else {
+                addDisp = "";
+            }
+            try {
+                katex.render(addDisp+texTxt, el);
+            }
+            catch(err) {
+                $(this).html("<span class='err'>"+err);
+            }
+          }); 
+        })(); 
+</script>
+
+</body>
+</html>
