@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>伸縮する数学書サンプル：選択公理について</title>
+
+        <link rel="stylesheet" href="katex/katex.min.css">
+        <link rel="stylesheet" type="text/css" href="css/honoka.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <style type="text/css">
+  body {
+      padding-top: 80px;
+  }
+  .eqn {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      margin-left: 15px;
+  }
+  .text, h1, .well, .panel-body, .text-info {
+    font-family: "游明朝", "Yu Mincho", YuMincho, serif;
+  }
+  .top {
+      margin-left: 30px;
+      margin-bottom: 30px;
+  }
+  a[role="button"]:not(.text-warning) {
+      color: #c32079;
+  }
+  .panel {
+      margin-top: 10px;
+  }
+  @media ( min-width: 768px ) {
+    #banner {
+      border-bottom: none;
+    }
+    .bs-component {
+      position: relative;
+    }
+    .bs-component .modal {
+      position: relative;
+      top: auto;
+      right: auto;
+      left: auto;
+      bottom: auto;
+      z-index: 1;
+      display: block;
+    }
+    .bs-component .modal-dialog {
+      width: 90%;
+    }
+    .bs-component .popover {
+      position: relative;
+      display: inline-block;
+      width: 220px;
+      margin: 5px;
+    }
+    .panel, .well {
+        width: 80%;
+    }
+}
+  </style>
+
+  <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="well">
+        この文書は，「伸縮する数学書」のサンプルです．<br />
+        alg-d 氏による選択公理の解説の最初の部分
+        「<a href="http://alg-d.com/math/ac/ac.html">選択公理について</a>」（<a href="http://alg-d.com">壱大整域</a>より）を「伸縮可能に」しました．<br />
+        <br />
+        色のついた箇所をクリックすると，追加の説明が表示されたり，既出の説明が画面上部に表示されたりします．<br />
+        <br />
+        伸縮する数学書の書き方の<a href="usage.html">説明書</a>や<a href="sample.html">ほかのサンプル</a>もご覧ください．<br />
+    <p class="pull-right">
+        連絡先：elastic [at-mark] i3vi3 [dot] xyz
+    </p>
+
+    </div>
+
+<div class="row">
+
+  <!-- Navbar
+  ================================================== -->
+  <div class="bs-docs-section clearfix">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-header">
+          <h1>選択公理について</h1>
+        </div>
+        <div class="panel panel-info" id="def-cf_of_set">
+            <div class="panel-heading">
+                <h3 class="panel-title">定義</h3>
+            </div>
+            <div class="panel-body">
+                  $X$ を集合とするとき，次の条件を満たす写像 $f\colon X\to \cup_{x\in X}x$ を集合 $X$ の選択関数という．
+    <div class="eqn">「任意の非空集合 $x\in X$ に対して $f(x)\in x$」</div>
+            </div>
+        </div>
+
+    <div class="text">次の命題を選択公理と呼ぶ．</div>
+
+    <div class="panel panel-primary" id="def-ac">
+        <div class="panel-heading">
+            <h3 class="panel-title">選択公理</h3>
+        </div>
+        <div class="panel-body">
+            任意の集合は選択関数を持つ．
+        </div>
+    </div>
+
+    <div class="panel panel-info" id="def-cf_of_family">
+        <div class="panel-heading">
+            <h3 class="panel-title">定義</h3>
+        </div>
+        <div class="panel-body">
+            全射 $g\colon \Lambda\to A$ を $\Lambda$ を添え字集合とする集合族という．
+            $X_{\lambda} := g(\lambda)$ と置いて，この集合族を $\{X_{\lambda}\}_{\lambda\in\Lambda}$ で表すことが多い．
+
+            また，次の条件を満たす写像 $f\colon\Lambda\to\cup_{\lambda\in\Lambda}X_{\lambda}$ を集合族
+            $\{X_{\lambda}\}_{\lambda\in\Lambda}$ の選択関数という．
+            <div class="eqn">「任意の $\lambda\in\Lambda$ に対して $f(\lambda)\in X_{\lambda}$.」</div>
+            集合族 $\{X_{\lambda}\}_{\lambda\in\Lambda}$ の選択関数全体からなる集合を $\prod_{\lambda\in\Lambda}X_{\lambda}$ で表す．
+            $f\in\prod_{\lambda\in\Lambda}X_{\lambda}$ に対して $x_{\lambda} := f(\lambda)$ と置くとき，
+            $f=(x_{\lambda})_{\lambda\in\Lambda}$ 等と表すことがある．
+        </div>
+    </div>
+
+    <div class="panel panel-success">
+
+        <div class="panel-heading">
+            <h3 class="panel-title">定理</h3>
+        </div>
+        <div class="panel-body">
+            次の命題は(ZF上)同値．</p>
+            <ol>
+                <li><a data-et="modal-def-ac">選択公理</a></li>
+                <li>非空集合の族 $\{X_{\lambda}\}_{\lambda\in\Lambda}$ に対して，<a data-et="modal-def-cf_of_family">選択関数</a>が存在する．</li>
+                <li>互いに素な非空集合の族 $\{X_{\lambda}\}_{\lambda\in\Lambda}$ に対して，<a data-et="modal-def-cf_of_family">選択関数</a>が存在する．</li>
+<li>非空集合の族 $\{X_{\lambda}\}_{\lambda\in\Lambda}$ に対して，$\prod_{\lambda\in\Lambda}X_{\lambda}\neq\emptyset$．</li>
+<li>互いに素な非空集合の族 $\{X_{\lambda}\}_{\lambda\in\Lambda}$ に対して，$\prod_{\lambda\in\Lambda}X_{\lambda}\neq\emptyset$．</li>
+<li>$\{X_{\lambda}\}_{\lambda\in\Lambda}$ を互いに素な非空集合の族とするとき，ある集合 $C$ が存在して「任意の $\lambda\in\Lambda$ に対し $|X_{\lambda}\cap C|=1$」を満たす．この $C$ を選択集合という．</li>
+            </ol>
+        </div>
+    </div>
+        <div class="well"><strong>証明:</strong>
+            <p>(1 ⇒ 2)
+            集合 $\{ X_{\lambda} | \lambda\in\Lambda\}$ の<a data-et="modal-def-cf_of_set">選択関数</a>を $g$ とすれば $f(\lambda) := g(X_{\lambda})$ が$\{X_{\lambda}\}_{\lambda\in\Lambda}$ の<a data-et="modal-def-cf_of_family">選択関数</a>である．</p>
+            <p>(2 ⇒ 3), <a data-et="collapse-trivial">(3 ⇒ 5)</a>, <a data-et="collapse-trivial">(2 ⇒ 4)</a>, (4 ⇒ 5) は明らか．</p>
+            <div class="collapse" id="trivial">実際，(2 ⇒ 4) と (3 ⇒ 5) は，それぞれ $\prod_{\lambda\in\Lambda}X_{\lambda}$ という記号の<a data-et="modal-def-cf_of_family">定義</a>を用いて言い換えたものに過ぎない．</div>
+            <p>(5 ⇒ 6)
+$\{X_{\lambda}\}_{\lambda\in\Lambda}$ を互いに素な非空集合の族とする．
+仮定5により元 $( x_{\lambda} )_{\lambda\in\Lambda}\in\prod_{\lambda\in\Lambda}X_{\lambda}$ が取れる．
+このとき $C :=\{ x_\lambda | \lambda\in\Lambda\}$ と置けばよい．</p>
+
+        <p>(6 ⇒ 1)
+        $X$ を集合とする．$\emptyset\notin X$ と<a data-et="collapse-61">してよい</a>．
+                <div class="collapse" id="61">
+                    実際，$X_0 := X\setminus\{\emptyset\}$ の<a data-et="modal-def-cf_of_set">選択関数</a> $f$ が存在したとしよう．
+                    $a\in X$ をひとつとって，$f(\emptyset):= f(a)$ として $f$ の定義域を $X$ に拡張すれば，
+                    この $f$ が $X$ の<a data-et="modal-def-cf_of_set">選択関数</a>である．
+                </div>
+            $Y := \big\{\{x\}\times x\big\}_{x\in X}$ とすれば $Y$ は互いに素な集合の族であるから，選択集合 $C$ が存在する．
+            このとき $x\in X$ に対して $C\cap(\{x\}\times x)=\{\langle x, f(x)\rangle\}$ と表せば $f$ が $X$ の<a data-et="modal-def-cf_of_set">選択関数</a>である．</p>
+      </div></div>
+  
+        <div class="pull-right">
+        製作：<a href="http://www.twitter.com/nolimbre/">@nolimbre</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    popovers = {
+        term_field: {
+            title: "体",
+            content: "体とは，零環ではない可換環のうち，0 でない全ての元が可逆であるもののことである．",
+            placement: "top",
+        },
+        zero_ring: {
+            title: "零環",
+            content: "零環とは，ただ 1 つの元から成る環のことである．環が零環であるためには，その環において 1 = 0 であることが必要十分である．",
+            placement: "top",
+        },
+        thm_id: {
+            title: "一致の定理",
+            content: "複素平面上の正則函数は，その零点集合が集積点をもてば，複素平面全体で恒等的に 0 である．",
+        },
+        finite_id: {
+            title: "有限整域",
+            content: "有限整域とは，整域のうち，台集合が有限集合であるものをいう．",
+        },
+    };
+</script>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="katex/katex.min.js"></script>
+<script src="katex/auto-render.min.js"></script>
+<script src="js/elastictext.js"></script>
+
+<script type="text/javascript">
+    renderMathInElement(document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    });
+    (function(){
+          $(".math").each(function() {
+            var texTxt = $(this).text();
+            el = $(this).get(0);
+            if(el.tagName == "div"){
+                addDisp = "\\displaystyle";
+            } else {
+                addDisp = "";
+            }
+            try {
+                katex.render(addDisp+texTxt, el);
+            }
+            catch(err) {
+                $(this).html("<span class='err'>"+err);
+            }
+          }); 
+        })(); 
+</script>
+
+</body>
+</html>
